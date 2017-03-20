@@ -3,11 +3,12 @@ $(document).ready(function() {
     var chat = $('#chat');
 
     var pseudo = prompt('Pseudo : ');
+
     socket.emit('newUser', pseudo);
 
     socket.on('message', function(message) {
         chat.append(message).children(':last').css('opacity', 0).slideDown('slow').animate({ opacity: 1 }, { duration: 'slow' });
-         updateScroll();
+        updateScroll();
     })
 
     socket.on('userTyping', function(data) {
@@ -21,8 +22,9 @@ $(document).ready(function() {
         } else {
             chat.find('#' + pseudo + 'Typing').remove();
         }
-    })
+    });
 
+    // When the user starts or stops writing
     $('#message').on('input', function() {
         var input = $(this);
 
@@ -35,6 +37,7 @@ $(document).ready(function() {
         }
     });
 
+    // When the message is sent
     $("#message-form").submit(function(event) {
         var messageContent = $('#message').val();
 
@@ -52,7 +55,8 @@ $(document).ready(function() {
         }
     });
 
+    // When a new message appears, scroll down to the last message
     function updateScroll() {
         document.getElementById('chat').scrollTop = document.getElementById('chat').scrollHeight;
     }
-})
+});

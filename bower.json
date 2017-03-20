@@ -1,0 +1,22 @@
+{
+  "name": "chat-app",
+  "description": "Chat application made with Node.js and Socket.IO",
+  "main": "app.js",
+  "authors": [
+    "Arthur Fauquenot"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "normalize-css": "^5.0.0",
+    "font-awesome": "^4.7.0"
+  }
+}

@@ -1,0 +1,123 @@
+p {
+	margin: 0;
+	color: rgba(0, 0, 0, .9);
+}
+
+.userNotification {
+	font-style: italic;
+	font-size: 13px;
+	padding: 5px 15px;
+	opacity: .9;
+	border-top: 1px solid rgba(0, 0, 0, .1);
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.userNotification > span {
+	font-weight: bold;
+}
+
+.userTyping {
+	font-style: italic;
+	font-size: 11px;
+	opacity: .8;
+}
+
+#chat {
+	padding: 20px;
+	background-color: rgba(0, 0, 0, .05);
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, .1);
+	height: 500px;
+	overflow-y: auto;
+}
+
+.message {
+	margin: 10px 0;
+}
+
+.message .message-content {
+	width: 100%;
+	border-radius: 10px;
+	padding: 6px 15px;
+	margin: 0;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, .15);
+}
+
+.message-in .message-content {
+	background-color: #99d3ff;
+}
+
+.message-out .message-content {
+	background-color: rgba(0, 0, 0, .15);
+}
+
+.message .message-author {
+	padding-left: 5px;
+	margin-bottom: 2px;
+}
+
+.message .message-author i {
+	font-size: 20px;
+	position: relative;
+	top: 5px;
+	margin-right: 5px;
+}
+
+/* FORM STYLES */
+#message-form {
+	padding: 5px;
+	margin-top: 30px;
+}
+
+.message-input {
+	padding: 8px;
+	border: none;
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+	margin-right: 20px;
+	width: 100%;
+	color: rgba(0, 0, 0, .8);
+	-webkit-transition: border-bottom .5s ease;
+	-moz-transition: border-bottom .5s ease;
+	-ms-transition: border-bottom .5s ease;
+	-o-transition: border-bottom .5s ease;
+	transition: border-bottom .5s ease;
+}
+
+.message-input:focus {
+	outline: none;
+}
+
+.message-input.input-focus {
+	border-bottom: 1px solid rgba(0, 0, 0, .3);
+	-webkit-transition: border-bottom .5s ease;
+	-moz-transition: border-bottom .5s ease;
+	-ms-transition: border-bottom .5s ease;
+	-o-transition: border-bottom .5s ease;
+	transition: border-bottom .5s ease;
+}
+
+.submit-button {
+	background-color: #2196f3;
+	margin: 10px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	border: none;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, .3);
+	color: #fff;
+	-webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
+}
+
+.submit-button:hover {
+	background-color: #4da6ff;
+	-webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
+}
+
+/* END FORM STYLES */

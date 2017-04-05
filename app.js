@@ -8,6 +8,10 @@ var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 
 app.use(express.static(__dirname + '/app'));
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/app/index.html');
+});
 
 io.sockets.on('connection', function(socket, pseudo) {
 
@@ -31,7 +35,7 @@ io.sockets.on('connection', function(socket, pseudo) {
             socket.isTyping = isTyping;
             socket.broadcast.emit('userTyping', { isTyping: socket.isTyping, pseudo: socket.pseudo });
         }
-    })
-})
+    });
+});
 
 server.listen(8080);

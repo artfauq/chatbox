@@ -3,9 +3,20 @@
   "version": "0.1.0",
   "description": "Chat application made with Node.js and Socket.IO",
   "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arthurfauq/chatbox.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "Arthur Fauquenot",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ent": "^2.2.0",
+    "express": "^4.15.2",
+    "file-system": "^2.2.2",
+    "socket.io": "^1.7.3"
+  }
 }

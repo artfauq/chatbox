@@ -38,4 +38,6 @@ io.sockets.on('connection', function(socket, pseudo) {
     });
 });
 
-server.listen(8080);
+server.listen(8080, function() {
+    console.log('Express listening on localhost at port 8080 !');
+});

@@ -13,3 +13,6 @@ Node.js must be installed to run the application. Please find more [here](https:
 To run the application, install required dependencies with `npm install` and `bower install`.
 
 Then, run `node app.js` to start the server and go to `http://localhost:8080`.
+
+## Screenshots
+![Chatbox Screenshot](https://github.com/arthurfauq/chatbox/blob/master/screenshots/screenshot-chatbox.PNG)

@@ -16,4 +16,6 @@ Then, run `node app.js` to start the server and go to `http://localhost:8080`.
 
 ## Screenshots
 
-![Chatbox Screenshot](https://github.com/arthurfauq/chatbox/blob/master/screenshots/screenshot-chatbox.PNG)
+<p align="center">
+<img src="https://github.com/arthurfauq/chatbox/blob/master/screenshots/screenshot-chatbox.PNG"/>
+</p>

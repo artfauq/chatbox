@@ -1,22 +1,47 @@
 {
-  "name": "chat-app",
-  "version": "0.1.0",
+  "name": "chatbox",
+  "version": "1.3.0",
   "description": "Chat application made with Node.js and Socket.IO",
-  "main": "app.js",
+  "author": "Arthur Fauquenot",
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/arthurfauq/chatbox.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "webpack-dev-server --open",
+    "build": "webpack",
+    "server": "nodemon server.js"
   },
-  "author": "Arthur Fauquenot",
-  "license": "ISC",
   "dependencies": {
     "ent": "^2.2.0",
     "express": "^4.15.2",
-    "file-system": "^2.2.2",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1",
+    "moment": "^2.19.1",
+    "nodemon": "^1.12.1",
     "socket.io": "^1.7.3"
-  }
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.5",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.7",
+    "cssnano": "^3.10.0",
+    "extract-text-webpack-plugin": "^3.0.1",
+    "file-loader": "^1.1.5",
+    "font-awesome-webpack2": "^0.0.6",
+    "less": "^3.0.0-alpha.3",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.7",
+    "postcss-sorting": "^3.0.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.7.1",
+    "webpack-dev-server": "^2.9.1"
+  },
+  "license": "MIT"
 }

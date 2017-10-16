@@ -1,0 +1,15 @@
+@import 'classes';
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+p {
+    margin: 0;
+    color: rgba(0, 0, 0, .9);
+}

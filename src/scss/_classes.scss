@@ -1,5 +1,5 @@
 .container {
-    width: 80vw;
+    width: 60vw;
     margin: auto;
     #chat {
         position: relative;
@@ -10,9 +10,8 @@
         overflow-y: auto;
         .message {
             .message-author {
-                padding-left: 5px;
-                margin-bottom: 2px;
-                font-size: 11px;
+                font-size: 12px;
+                margin-top: 2px;
                 i {
                     font-size: 17px;
                     position: relative;
@@ -23,18 +22,17 @@
                 width: 100%;
                 border-radius: 10px;
                 padding: 6px 15px;
-                margin: 5px 8px;
-                box-shadow: 5px 5px 10px rgba(0, 0, 0, .15);
+                margin: 4px 8px;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, .12);
             }
             &.message-in {
                 .message-content {
-                    background-color: #99d3ff;
-                    
+                    background-color: rgba(0, 0, 0, .15);                    
                 }
             }
             &.message-out {
                 .message-content {
-                    background-color: rgba(0, 0, 0, .15);
+                    background-color: #99d3ff;
                     
                 }
             }
@@ -47,9 +45,10 @@
         }
         .user-notification {
             font-style: italic;
-            font-size: 13px;
-            padding: 5px 15px;
+            font-size: 12px;
+            padding: 4px 15px;
             opacity: .9;
+            margin: 4px 0px;
             border-top: 1px solid rgba(0, 0, 0, .1);
             border-bottom: 1px solid rgba(0, 0, 0, .1);
             &>span {
@@ -65,8 +64,8 @@
         }
     }
     #message-form {
-        padding: 5px;
         margin-top: 30px;
+        background-color: rgba(0,0,0,.1);
         input {
             padding: 8px;
             border: none;
@@ -76,6 +75,7 @@
             transition: border-bottom .35s ease;
             &::placeholder {
                 opacity: .8;
+                padding-left: 5px;
             }
             &:focus {
                 outline: none;

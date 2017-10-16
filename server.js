@@ -8,25 +8,20 @@ let server = http.createServer(app);
 let io = require('socket.io').listen(server);
 
 io.sockets.on('connection', function (socket) {
-    let id = 0, chat = []
+    let user_id = 0
 
     socket.on('newUser', function (pseudo) {
         pseudo = ent.encode(pseudo)
-        id++
+        user_id++
 
-        socket.broadcast.emit('newUser', { pseudo, id })
-    });
+        socket.emit('newUser', { pseudo, user_id });
+        socket.broadcast.emit('newUser', { pseudo, user_id })
+    })
 
     socket.on('message', function (message) {
-        if (!chat.length) message.newAuthor = true
-        else if (chat[chat.length - 1].pseudo == message.pseudo) message.newAuthor = false
-        else message.newAuthor = true
-
         socket.emit('message', message);
         socket.broadcast.emit('message', message);
-
-        chat.push(message)
-    });
+    })
 
     socket.on('userTyping', function (data) {
         socket.broadcast.emit('userTyping', {
@@ -34,7 +29,12 @@ io.sockets.on('connection', function (socket) {
             pseudo: data.pseudo,
             user_id: data.user_id
         });
-    });
+    })
+
+    socket.on('userDisconnect', function (pseudo) {
+        console.log(pseudo, 'disconnected...')
+        socket.broadcast.emit('userDisconnected', pseudo)
+    })
 });
 
 server.listen(5000, function () {

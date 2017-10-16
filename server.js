@@ -30,7 +30,7 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('userTyping', function (data) {
         socket.broadcast.emit('userTyping', {
-            isTyping: data.isTyping,
+            userTyping: data.userTyping,
             pseudo: data.pseudo,
             user_id: data.user_id
         });

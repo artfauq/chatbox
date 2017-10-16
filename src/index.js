@@ -11,7 +11,9 @@ $(document).ready(() => {
     let pseudo = prompt('Pseudo : ')
     socket.emit('newUser', pseudo)
 
-    let user_id, userTyping, messageContent
+    let user_id
+    let userTyping = false
+    let messageContent = ''
 
     socket.on('newUser', data => {
         user_id = data.id
@@ -33,21 +35,21 @@ $(document).ready(() => {
     })
 
     socket.on('userTyping', data => {
-        if (data.isTyping) newContent('<p class="user-typing user-' + data.user_id + '-typing"><span>' + data.pseudo + '</span> est en train d\'ecrire...</p>')
+        if (data.userTyping) newContent('<p class="user-typing user-' + data.user_id + '-typing"><span>' + data.pseudo + '</span> est en train d\'ecrire...</p>')
         else $('#chat').find('.user-' + user_id + '-typing').remove()
     })
 
     $('#message-input').on('input', () => {
-        if ($(this).val()) {
+        if ($('#message-input').val()) {
             if (userTyping == false) {
                 userTyping = true
-                socket.emit('userTyping', { pseudo, isTyping, user_id })
+                socket.emit('userTyping', { pseudo, userTyping, user_id })
             }
         }
         else {
             if (userTyping == true) {
                 userTyping = false
-                socket.emit('userTyping', { pseudo, isTyping, user_id })
+                socket.emit('userTyping', { pseudo, userTyping, user_id })
             }
         }
     })

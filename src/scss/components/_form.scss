@@ -1,22 +1,22 @@
 #message-form {
     align-items: center;
-    background-color: rgba(0, 0, 0, .1); 
+    background-color: rgba(0, 0, 0, .05);
     border-radius: 15px;
     padding: 18px;
     #message-input {
         padding: 12px;
         margin-right: 10px;
-        border: 1px solid rgba(0,0,0,.25);
+        border: 1px solid rgba(0, 0, 0, .25);
         color: rgba(0, 0, 0, .8);
         transition: all .3s ease;
         &::placeholder {
-            color: rgba(0,0,0,.65);
+            color: rgba(0, 0, 0, .65);
             transition: color .25s ease;
         }
         &:focus {
             outline: none;
             &::placeholder {
-                color: rgba(0,0,0,.35);
+                color: rgba(0, 0, 0, .35);
             }
         }
     }

@@ -2,12 +2,13 @@
 @import 'components/form';
 @import 'components/chat';
 @import 'components/parameters';
-
 * {
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
+    height: 100%;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }

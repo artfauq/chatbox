@@ -1,4 +1,6 @@
-
+.chat-content {
+    margin: auto;
+    width: 70%;
     #chat {
         position: relative;
         padding: 20px;
@@ -32,13 +34,12 @@
             }
             &.message-in {
                 .message-content {
-                    background-color: rgba(0, 0, 0, .15);                    
+                    background-color: rgba(0, 0, 0, .15);
                 }
             }
             &.message-out {
                 .message-content {
                     background-color: #99d3ff;
-                    
                 }
             }
             .message-date {
@@ -68,3 +69,4 @@
             opacity: .8;
         }
     }
+}

@@ -1,6 +1,13 @@
 .container {
-    width: 60vw;
-    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transition: all .2s ease-in-out;
+    &.show-parameters {
+        right: 10vw;
+    }
 }
 
 .box-shadow {

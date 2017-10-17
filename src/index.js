@@ -106,7 +106,8 @@ $(document).ready(() => {
     })
 
     $('#cogs_button').on('click', () => {
-        $('#parameters').toggleClass('visible')
+        $('#parameters').toggleClass('show-parameters')
+        $('.container').toggleClass('show-parameters')
     })
 
     $('.avatar').click((e) => {
@@ -129,7 +130,10 @@ $(document).ready(() => {
             $('#message-input').prop('disabled', true)
 
             setTimeout(() => {
-                socket.emit('message', { content, user })
+                socket.emit('message', {
+                    content,
+                    user
+                })
 
                 $('#message-input').val('')
                 $('#message-input').prop('disabled', false)
@@ -143,7 +147,10 @@ $(document).ready(() => {
 
         $('#message-input').focus()
 
-        if (timeout == 0) socket.emit('message', { content, user })
+        if (timeout == 0) socket.emit('message', {
+            content,
+            user
+        })
         timeout = 1
 
         setTimeout(() => {
@@ -165,8 +172,7 @@ $(document).ready(() => {
                 user.typing = true
                 socket.emit('userTyping', user)
             }
-        }
-        else {
+        } else {
             if (user.typing == true) {
                 user.typing = false
                 socket.emit('userTyping', user)
@@ -179,7 +185,11 @@ $(document).ready(() => {
     }
 
     function newContent(content) {
-        $('#chat').append(content).children(':last').css('opacity', 0).slideDown('slow').animate({ opacity: 1 }, { duration: 250 })
+        $('#chat').append(content).children(':last').css('opacity', 0).slideDown('slow').animate({
+            opacity: 1
+        }, {
+            duration: 250
+        })
         updateScroll()
     }
 });

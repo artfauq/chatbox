@@ -1,13 +1,17 @@
 #parameters {
     position: absolute;
-    right: -200px;
+    right: -20vw;
     top: 0;
-    width: 200px;
+    width: 20vw;
     text-align: center;
     padding: 20px;
     transition: right .2s ease-in-out;
-    &.visible {
-        right: 0px;        
+    #cogs_button {
+        position: absolute;
+        right: 25vw;
+    }
+    &.show-parameters {
+        right: 0vw;
     }
     #avatars {
         .avatar {

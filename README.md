@@ -12,7 +12,7 @@ Node.js must be installed to run the application. Please find more [here](https:
 
 To run the application, install required dependencies with `npm install`.
 
-Run `npm run server` to start the Socket.IO server on port 5000.
+Run `npm run server` to start the Socket.IO server on port 5000. In `index.js`, replace with your own IP address.
 
 Run `npm start` to start a local development server.
 

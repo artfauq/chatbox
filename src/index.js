@@ -6,10 +6,11 @@ const io = require('socket.io-client')
 const moment = require('moment')
 const SocketIOFileUpload = require('socketio-file-upload')
 
-const server_URL = 'http://localhost:5000/'
+// Replace with your own IP address
+const server_URL = 'http://192.168.12.147:5000/'
 
 $(document).ready(() => {
-    const socket = io.connect('http://192.168.12.147:5000')
+    const socket = io.connect(server_URL)
 
     let pseudo = prompt('Pseudo : ')
     socket.emit('newUser', pseudo)

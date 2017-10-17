@@ -1,4 +1,5 @@
-require('font-awesome/css/font-awesome.css');
+require('font-awesome/css/font-awesome.css')
+require('file-loader?name=[name].[ext]!./index.html')
 import './scss/main.scss'
 
 const $ = require('jquery')

@@ -3,29 +3,30 @@ require('file-loader?name=[name].[ext]!./index.html')
 import './scss/main.scss'
 
 const $ = require('jquery')
-const io = require('socket.io-client')
 const moment = require('moment')
-const SocketIOFileUpload = require('socketio-file-upload')
 
 // Replace with your own IP address
-const server_URL = 'http://192.168.12.147:5000/'
+const server_URL = 'http://192.168.12.147:3000/'
+const io = require('socket.io-client')
+const socket = io.connect(server_URL)
+
+// Initialize the library used to upload files with Socket.IO
+const SocketIOFileUpload = require('socketio-file-upload')
+let uploader = new SocketIOFileUpload(socket)
+
+let timeout = 0
+let lastPseudo = ''
+let user = {
+    user_id: 0,
+    avatar: 'fa fa-user',
+    typing: false,
+    pseudo: null
+}
 
 $(document).ready(() => {
-    let user = {
-        user_id: 0,
-        avatar: 'fa fa-user',
-        typing: false,
-        pseudo: null
-    }
-
-    const socket = io.connect(server_URL)
-
+    // Prompt user to enter his pseudo and inform other users
     user.pseudo = prompt('Pseudo : ')
     socket.emit('newUser', user.pseudo)
-
-    activeAvatar()
-
-    let uploader = new SocketIOFileUpload(socket)
 
     // Configure how SocketIOFileUpload can read files
     $('#file_button').on('click', () => {
@@ -36,20 +37,7 @@ $(document).ready(() => {
         event.file.meta.user = user;
     })
 
-    // uploader.addEventListener('progress', event => {
-    //     let percent = event.bytesLoaded / event.file.size * 100;
-    //     console.log("File is", percent.toFixed(2), "percent loaded");
-    // });
-
-    // Do something when a file is uploaded:
-    // uploader.addEventListener('complete', event => {
-    //     console.log(event.success);
-    //     console.log(event.file);
-    // });
-
-    let lastPseudo = ''
-    let timeout = 0
-
+    // Socket.IO 
     socket.on('newUser', data => {
         if (data.pseudo == user.pseudo) user.user_id = data.user_id
 
@@ -114,21 +102,21 @@ $(document).ready(() => {
     $('.avatar').click((e) => {
         user.avatar = $(e.target).attr('class').replace('active ', '')
         socket.emit('newAvatar', user)
-        activeAvatar()
+        checkActiveAvatar()
     })
 
-    $('#message-input').on('input', () => {
+    $('#message_input').on('input', () => {
         checkUserTyping()
     })
 
-    $("#message-form").submit(event => {
+    $("#message_form").submit(event => {
         event.preventDefault()
 
-        let content = $('#message-input').val()
+        let content = $('#message_input').val()
 
         if (content) {
             checkUserTyping()
-            $('#message-input').prop('disabled', true)
+            $('#message_input').prop('disabled', true)
 
             setTimeout(() => {
                 socket.emit('message', {
@@ -136,9 +124,9 @@ $(document).ready(() => {
                     user
                 })
 
-                $('#message-input').val('')
-                $('#message-input').prop('disabled', false)
-                $('#message-input').focus()
+                $('#message_input').val('')
+                $('#message_input').prop('disabled', false)
+                $('#message_input').focus()
             }, 250)
         }
     })
@@ -146,7 +134,7 @@ $(document).ready(() => {
     $('#thumb_button').on('click', () => {
         let content = '<i class="fa fa-thumbs-up fa-lg"></i>';
 
-        $('#message-input').focus()
+        $('#message_input').focus()
 
         if (timeout == 0) socket.emit('message', {
             content,
@@ -159,16 +147,15 @@ $(document).ready(() => {
         }, 500)
     })
 
-    function activeAvatar() {
+    function checkActiveAvatar() {
         $('.avatar').each((index, element) => {
-            console.log($(element))
             if ($(element).hasClass(user.avatar)) $(element).addClass('active')
             else if ($(element).hasClass('active')) $(element).removeClass('active')
         })
     }
 
     function checkUserTyping() {
-        if ($('#message-input').val()) {
+        if ($('#message_input').val()) {
             if (user.typing == false) {
                 user.typing = true
                 socket.emit('userTyping', user)

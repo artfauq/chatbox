@@ -16,13 +16,13 @@
 
             <div id="chat"></div>
 
-            <form id="message-form" method="post" accept-charset="utf-8" class="flex flex-horizontal margin-top align-center">
-                <input type="text" id="message-input" class="fill" placeholder="Type in your message..." autocomplete="off" autofocus required>
+            <form id="message_form" accept-charset="utf-8" class="flex flex-horizontal margin-top align-center">
+                <input type="text" id="message_input" class="fill" placeholder="Type in your message..." autocomplete="off" autofocus required>
                 <div>
                     <button type="submit" class="button">
                         <i class="fa fa-send fa-lg"></i>
                     </button>
-                    <button type="button" id="thumb-button" class="button">
+                    <button type="button" id="thumb_button" class="button">
                         <i class="fa fa-thumbs-up fa-lg"></i>
                     </button>
                     <button type="button" id="file_button" class="button">
@@ -39,29 +39,37 @@
         </button>
 
         <h2>Paramètres</h2>
-        <h3>Pseudo</h3>
-        <div class="margin-bottom"></div>
+        <div class="full flex flex-vertical flex-around">
+            <div>
+                <h3>Pseudo</h3>
+                <div class="margin-bottom"></div>
+            </div>
 
-        <h3>Avatar</h3>
-        <div id="avatars" class="margin-bottom flex flex-horizontal align-center justify-around flex-wrap">
-            <i class="avatar fa fa-user"></i>
-            <i class="avatar fa fa-cogs"></i>
-            <i class="avatar fa fa-futbol-o"></i>
-            <i class="avatar fa fa-female"></i>
-            <i class="avatar fa fa-male"></i>
-            <i class="avatar fa fa-bug"></i>
-            <i class="avatar fa fa-plane"></i>
-            <i class="avatar fa fa-wheelchair"></i>
-            <i class="avatar fa fa-blind"></i>
-            <i class="avatar fa fa-bomb"></i>
-            <i class="avatar fa fa-eye"></i>
-            <i class="avatar fa fa-trophy"></i>
-            <i class="avatar fa fa-tint"></i>
-            <i class="avatar fa fa-free-code-camp"></i>
+            <div>
+                <h3>Avatar</h3>
+                <div id="avatars" class="margin-bottom flex flex-horizontal align-center flex-between flex-wrap">
+                    <i class="avatar fa fa-user"></i>
+                    <i class="avatar fa fa-cogs"></i>
+                    <i class="avatar fa fa-futbol-o"></i>
+                    <i class="avatar fa fa-female"></i>
+                    <i class="avatar fa fa-male"></i>
+                    <i class="avatar fa fa-bug"></i>
+                    <i class="avatar fa fa-plane"></i>
+                    <i class="avatar fa fa-wheelchair"></i>
+                    <i class="avatar fa fa-blind"></i>
+                    <i class="avatar fa fa-bomb"></i>
+                    <i class="avatar fa fa-eye"></i>
+                    <i class="avatar fa fa-trophy"></i>
+                    <i class="avatar fa fa-tint"></i>
+                    <i class="avatar fa fa-free-code-camp"></i>
+                </div>
+            </div>
+
+            <div>
+                <h3>Couleur</h3>
+                <div class="margin-bottom"></div>
+            </div>
         </div>
-
-        <h3>Couleur</h3>
-        <div class="margin-bottom"></div>
     </div>
 
     <script src="./bundle.js"></script>

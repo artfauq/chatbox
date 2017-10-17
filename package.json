@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --open",
-    "build": "webpack",
+    "build": "webpack --progress",
     "server": "nodemon server.js"
   },
   "dependencies": {

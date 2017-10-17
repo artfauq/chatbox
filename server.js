@@ -8,8 +8,14 @@ const express = require('express'),
 
 // Create Express server
 let app = express()
+
 app.use('/images', express.static('images'))
+app.use(express.static('dist'))
 app.use(SocketIOFileUpload.router)
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/dist/index.html')
+})
 
 let server = http.createServer(app)
 
@@ -26,8 +32,14 @@ io.sockets.on('connection', function (socket) {
         fs.readFile(event.file.pathName, (error, filedata) => {
             if (error) throw error
             else {
-                socket.emit('image', { user: event.file.meta.user, fileName: event.file.name });
-                socket.broadcast.emit('image', { user: event.file.meta.user, fileName: event.file.name })
+                socket.emit('image', {
+                    user: event.file.meta.user,
+                    fileName: event.file.name
+                });
+                socket.broadcast.emit('image', {
+                    user: event.file.meta.user,
+                    fileName: event.file.name
+                })
             }
         })
     })
@@ -41,8 +53,14 @@ io.sockets.on('connection', function (socket) {
     socket.on('newUser', pseudo => {
         user_id++
 
-        socket.emit('newUser', { pseudo, user_id })
-        socket.broadcast.emit('newUser', { pseudo, user_id })
+        socket.emit('newUser', {
+            pseudo,
+            user_id
+        })
+        socket.broadcast.emit('newUser', {
+            pseudo,
+            user_id
+        })
     })
 
     socket.on('message', data => {
@@ -64,6 +82,6 @@ io.sockets.on('connection', function (socket) {
     })
 });
 
-server.listen(5000, function () {
-    console.log('Socket server listening on localhost at port 5000 !');
+server.listen(3000, function () {
+    console.log('Socket server listening on localhost at port 3000 !');
 });

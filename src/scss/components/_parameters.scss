@@ -1,0 +1,31 @@
+#parameters {
+    position: absolute;
+    right: -200px;
+    top: 0;
+    width: 200px;
+    text-align: center;
+    padding: 20px;
+    transition: right .2s ease-in-out;
+    &.visible {
+        right: 0px;        
+    }
+    #avatars {
+        .avatar {
+            font-size: 1.2em;
+            margin: 8px;
+            cursor: pointer;
+            opacity: .6;
+            padding-bottom: 4px;
+            transition: all .05s;
+            &:hover {
+                opacity: 0.8;
+            }
+            &.active {
+                opacity: 1;
+                color: #2196f3;
+                border-bottom: 1px solid #2196f3;
+                padding-bottom: 3px;
+            }
+        }
+    }
+}

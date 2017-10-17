@@ -26,39 +26,40 @@ io.sockets.on('connection', function (socket) {
         fs.readFile(event.file.pathName, (error, filedata) => {
             if (error) throw error
             else {
-                socket.emit('image', { pseudo: event.file.meta.pseudo, fileName: event.file.name });
-                socket.broadcast.emit('image', { pseudo: event.file.meta.pseudo, fileName: event.file.name })
+                socket.emit('image', { user: event.file.meta.user, fileName: event.file.name });
+                socket.broadcast.emit('image', { user: event.file.meta.user, fileName: event.file.name })
             }
         })
     })
 
-    uploader.on('error', function (event) {
+    uploader.on('error', event => {
         console.log('Error from uploader', event)
     })
 
     let user_id = 0
 
-    socket.on('newUser', function (pseudo) {
+    socket.on('newUser', pseudo => {
         user_id++
 
-        socket.emit('newUser', { pseudo, user_id });
+        socket.emit('newUser', { pseudo, user_id })
         socket.broadcast.emit('newUser', { pseudo, user_id })
     })
 
-    socket.on('message', function (message) {
-        socket.emit('message', message);
-        socket.broadcast.emit('message', message);
+    socket.on('message', data => {
+        socket.emit('message', data);
+        socket.broadcast.emit('message', data);
     })
 
-    socket.on('userTyping', function (data) {
-        socket.broadcast.emit('userTyping', {
-            userTyping: data.userTyping,
-            pseudo: data.pseudo,
-            user_id: data.user_id
-        });
+    socket.on('newAvatar', user => {
+        socket.emit('newAvatar', user);
+        socket.broadcast.emit('newAvatar', user);
     })
 
-    socket.on('userDisconnect', function (pseudo) {
+    socket.on('userTyping', user => {
+        socket.broadcast.emit('userTyping', user);
+    })
+
+    socket.on('userDisconnect', pseudo => {
         socket.broadcast.emit('userDisconnected', pseudo)
     })
 });

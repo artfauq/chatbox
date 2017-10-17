@@ -1,4 +1,7 @@
 @import 'classes';
+@import 'components/form';
+@import 'components/chat';
+@import 'components/parameters';
 
 * {
     box-sizing: border-box;
@@ -7,6 +10,17 @@
 html, body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+body {
+    overflow: hidden;
+}
+
+button {
+    outline: none;
+    &:focus {
+        outline: none;
+    }
 }
 
 p {

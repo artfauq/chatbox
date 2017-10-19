@@ -9,10 +9,10 @@
         overflow-y: auto;
         .message {
             .message-author {
-                font-size: 12px;
-                margin-top: 5px;
+                font-size: 13px;
+                margin-top: 8px;
                 i {
-                    font-size: 17px;
+                    font-size: 16px;
                     position: relative;
                     margin-right: 5px;
                 }
@@ -28,7 +28,7 @@
                     text-align: center;
                     img {
                         height: auto;
-                        max-width: 50%;
+                        max-height: 200px;
                     }
                 }
             }
@@ -46,15 +46,15 @@
                 display: flex;
                 align-items: center;
                 font-size: 70%;
-                opacity: .8;
+                opacity: .6;
             }
         }
         .user-notification {
             font-style: italic;
             font-size: 12px;
-            padding: 4px 15px;
+            padding: 5px 18px;
             opacity: .9;
-            margin: 4px 0px;
+            margin: 5px 0px;
             border-top: 1px solid rgba(0, 0, 0, .1);
             border-bottom: 1px solid rgba(0, 0, 0, .1);
             &>span {
